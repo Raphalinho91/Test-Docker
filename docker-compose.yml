@@ -14,13 +14,15 @@ services:
     networks:
       ollosa_network:
         ipv4_address: 192.168.1.2
+    volumes:
+      - ./client/dist:/var/www/html
 
   frontend:
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "3050:3050"
+      - "4173:4173"
     container_name: frontend
     restart: unless-stopped
     depends_on:
@@ -38,6 +40,7 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./ssl:/etc/ssl/certs/
+      - ./client/dist:/var/www/html
     networks:
       ollosa_network:
         ipv4_address: 192.168.1.4
