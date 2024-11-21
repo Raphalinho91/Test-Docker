@@ -5,11 +5,10 @@ const server = Fastify();
 
 server.register(fastifyCORS, {
   origin: '*',
-  credentials: true,
 });
 
-server.get('/', async (request, reply) => {
-  return { message: 'Hello from Fastify!' };
+server.get('/api', async (request, reply) => {
+  return { message: 'Hello from Fastify API!' };
 });
 
 server.listen({port: 3030, host: '192.168.1.2' }, (err, address) => {
