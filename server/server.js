@@ -12,7 +12,7 @@ server.get('/', async (request, reply) => {
   return { message: 'Hello from Fastify!' };
 });
 
-server.listen({port: 3030, host:'0.0.0.0'}, (err, address) => {
+server.listen({port: 3030, host: '192.168.1.2' }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
